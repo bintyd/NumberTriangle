@@ -89,6 +89,17 @@ public class NumberTriangle {
      *
      */
     public int retrieve(String path) {
+        NumberTriangle node = this;
+        for (char letter: path.toCharArray()) {
+            if (letter == 'l') {
+                node = node.left;
+            }
+            if (letter == 'r') {
+                node = node.right;
+            }
+            return node.root;
+
+        }
 
         return -1;
     }
