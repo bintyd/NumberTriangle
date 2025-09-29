@@ -129,22 +129,23 @@ public class NumberTriangle {
 
         String line = br.readLine();
         while (line != null) {
-
-            for (String letter: line.split(" ")) {
-                int value = Integer.parseInt(letter);
+            for (String num : line.trim().split(" ")) {
+                int value = Integer.parseInt(num);
                 curr_row.add(new NumberTriangle(value));
-                if (prev_row.isEmpty()) {
-                    top = curr_row.get(0);
-                }
-                else {
-                    for (int j = 0; j < prev_row.size(); j++) {
-                        prev_row.get(j).setLeft(curr_row.get(j));
-                        prev_row.get(j).setRight(curr_row.get(j + 1));
-                    }
-                }
-            prev_row = curr_row;
-            curr_row = new ArrayList<>() ;
             }
+
+            if (prev_row.isEmpty()) {
+                top = curr_row.get(0);
+            } else {
+                for (int j = 0; j < prev_row.size(); j++) {
+                    prev_row.get(j).setLeft(curr_row.get(j));
+                    prev_row.get(j).setRight(curr_row.get(j + 1));
+                }
+            }
+
+            prev_row = curr_row;
+            curr_row = new ArrayList<>();
+
             line = br.readLine();
         }
         br.close();
