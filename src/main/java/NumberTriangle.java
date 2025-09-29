@@ -97,11 +97,9 @@ public class NumberTriangle {
             if (letter == 'r') {
                 node = node.right;
             }
-            return node.root;
 
         }
-
-        return -1;
+        return node.root;
     }
 
     /** Read in the NumberTriangle structure from a file.
